@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+ portainer:
+  image: portainer/portainer-ce
+  privileged: true
+  container_name: portainer
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock
+   - portainer_data:/data
+  ports:
+   - '8000:8000'
+   - '9000:9000'
+   - '9443:9443'
+  restart: unless-stopped
+
+ nginx-proxy-manager:
+  image: 'jc21/nginx-proxy-manager:latest'
+  restart: unless-stopped
+  ports:
+   - '80:80'
+   - '443:443'
+   - '81:81'
+  volumes:
+   - npm_data:/data
+   - npm_letsencrypt:/etc/letsencrypt
+
+volumes:
+ portainer_data: {}
+ npm_letsencrypt: {}
+ npm_data: {}
+
+networks:
+ default:
+  #external: true
+  name: portainer-network
