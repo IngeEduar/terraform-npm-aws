@@ -15,10 +15,10 @@ variable "key_name" {
 
 variable "repository_url" {
   description = "URL of the Git repository to clone"
-  default     = "https://github.com/IngeEduar/Docker.git"
+  default     = "https://github.com/IngeEduar/terraform-npm-aws.git"
 }
 
 variable "instance_name" {
   description = "Name tag for the EC2 instance"
-  default     = "docker-server"
+  default     = "servosis-telegram-bot"
 }
