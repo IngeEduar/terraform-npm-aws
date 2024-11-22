@@ -32,5 +32,5 @@ volumes:
 
 networks:
  default:
-  #external: true
+  external: true
   name: portainer-network

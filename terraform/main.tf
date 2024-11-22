@@ -46,6 +46,7 @@ resource "aws_instance" "docker_server" {
             cd /services/npm-portainer/npm
             
             # Iniciar los contenedores
+            sudo docker network create portainer-network
             sudo docker compose up -d
   EOF
 }
